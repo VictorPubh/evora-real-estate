@@ -16,7 +16,7 @@ function Cards() {
         <Row md={4} style={styles.container}>
             {propierties.map((propiertie, i) => (
             <Col>
-                <Card style={{ marginBottom: '1rem' }}>
+                <Card style={{ width: '350px', margin: '0 auto', marginBottom: '1rem' }}>
                     <Image src={propiertie.url} width={100} height={300} />
                     <Card.Body>
                         <Card.Title>

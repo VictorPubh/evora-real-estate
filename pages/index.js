@@ -9,6 +9,7 @@ import { isMobile } from 'react-device-detect'
 import Header from './components/Header'
 import Cards from './components/Cards'
 import HomeCarousel from './components/HomeCarousel'
+import Logotipo from '../public/images/logo-black.svg'
 
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,7 +32,7 @@ export default function Home() {
         <span style={styles.primary}>Comprar</span>
       </div>
       <Cards />
-      <p style={styles.primary}>Ver todos</p>
+      <p style={styles.primary}>Ver todos [...]</p>
       </main>
 
       <footer style={styles.footer}>
@@ -44,30 +45,30 @@ export default function Home() {
               <Col style={styles.bgBox}>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', alignItems: 'center', width: '100%', height: '100%' }}>
                   <h2>1.</h2>
-                  <h4> Preencha sua ficha <br />
-                  e faremos uma busca <br />
-                  para encontrar o <br />
+                  <h4 style={styles.details}> Preencha sua ficha 
+                  e faremos uma busca 
+                  para encontrar o 
                   seu imóvel ideal. </h4>
                 </div>
               </Col>
               <Col style={styles.bgBox}>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', alignItems: 'center', width: '100%', height: '100%' }}>
                   <h2>2.</h2>
-                  <h4>Encontramos seu <br />
-                  imóvel e mediamos <br />
-                  a compra grantindo <br />
-                  sucesso em sua nova <br />
+                  <h4 style={styles.details}>Encontramos seu 
+                  imóvel e mediamos 
+                  a compra grantindo 
+                  sucesso em sua nova 
                   aquisição. </h4>
                 </div>
               </Col>
               <Col style={styles.bgBox}>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', alignItems: 'center', width: '100%', height: '100%' }}>
                   <h2>3.</h2>
-                  <h4 style={{ fontSize: '22px' }}>Fializamos toda a <br />
-                  negociação com total <br />
-                  garantia, sigilo e <br />
-                  muita qualidade até <br />
-                  a entrega das chaves <br />
+                  <h4 style={styles.details}>Fializamos toda a
+                  negociação com total
+                  garantia, sigilo e
+                  muita qualidade até
+                  a entrega das chaves
                   e documentação.</h4>
                 </div>
               </Col>
@@ -96,6 +97,9 @@ export default function Home() {
               </div>
             </Col>
         </Row>
+        <div style={ { width: '100%', display: 'flex', justifyContent: 'center' } }>
+          <Image src={Logotipo} width={200} height={200}/>
+        </div>
       </footer>
     </div>
   )
@@ -103,6 +107,9 @@ export default function Home() {
 
 const styles = {
   inputGroupForm: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '0.5rem' },
+  details: {
+    fontSize: '14px'
+  },
   input: {
     backgroundColor: 'rgba(168, 156, 132, 1)',
     color: 'white'

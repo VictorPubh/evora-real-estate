@@ -45,7 +45,7 @@ const styles = {
         position: 'fixed',
         top: '0',
         color: 'white',
-        zIndex: '2',
+        zIndex: '24',
     },
     link: {
         textAlign: 'center'
