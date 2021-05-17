@@ -12,12 +12,15 @@ function Cards() {
         setProperties(response.data)
     })
 
+    // {propiertie.images.map((image) => (
+    //     <Image src={propiertie.url} width={100} height={300} />
+    // ))}
+    
     return (
         <Row md={4} style={styles.container}>
             {propierties.map((propiertie, i) => (
             <Col>
                 <Card style={{ width: '350px', margin: '0 auto', marginBottom: '1rem' }}>
-                    <Image src={propiertie.url} width={100} height={300} />
                     <Card.Body>
                         <Card.Title>
                             {propiertie.title}

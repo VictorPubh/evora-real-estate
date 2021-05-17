@@ -10,7 +10,7 @@ export default function Header() {
     useEffect(async () => {
         const response = await axios.get('api/menu')
         setList(response.data)
-    })
+    }, [])
     const items = []
 
     const goRouter = (path) => {

@@ -8,7 +8,7 @@ import { isMobile } from 'react-device-detect'
 // Components
 import Header from './components/Header'
 import Cards from './components/Cards'
-import HomeCarousel from './components/HomeCarousel'
+import Gallery from './components/Gallery'
 import Logotipo from '../public/images/logo-black.svg'
 
 // Bootstrap
@@ -25,7 +25,7 @@ export default function Home() {
 
       <main>
         <Header />
-        <HomeCarousel />
+        <Gallery />
       <div style={styles.options}>
         <span style={styles.primary}>Alugar</span>
         |
@@ -89,7 +89,7 @@ export default function Home() {
                   <h5 style={{ marginRight: '0.25rem', fontSize: '1rem'}}> E-mail: </h5>
                   <FormControl style={styles.input} />
                 </InputGroup>
-                <h5 style={ { margin: '0.5rem' }}> Assunto: </h5>
+                <h5 style={ { margin: '0 0.5rem' }}> Assunto: </h5>
                 <InputGroup style={styles.inputGroupForm}>
                   <Form.Control as="textarea" style={styles.input} rows={3} />
                 </InputGroup>
