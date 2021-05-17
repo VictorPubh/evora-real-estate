@@ -47,7 +47,6 @@ async function connectToDatabase() {
             carousel
         }
     } finally {
-        client.close()
         console.log('A conexão com o MongoDB foi finalizada.')
     }
 }

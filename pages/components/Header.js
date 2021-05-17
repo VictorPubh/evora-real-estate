@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Image from 'next/image'
 import Logotipo from '../../public/images/logo-text.svg'
-import { Nav, Navbar, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
+import { Nav, Navbar } from 'react-bootstrap'
 
 export default function Header() {
     const [list, setList] = useState([])
@@ -11,18 +11,7 @@ export default function Header() {
         const response = await axios.get('api/menu')
         setList(response.data)
     }, [])
-    const items = []
 
-    const goRouter = (path) => {
-        router.push(path)
-    }
-
-    for (const [index, value] of list.entries()) {
-        items.push(
-            <Nav.Link style={styles.link} href={'#' + value.path}>
-                { value.title }
-            </Nav.Link>);
-    }
     return (
         <Navbar style={styles.navbar} expand="lg" variant="dark">
             <Navbar.Brand href="#home" style={styles.brand}>
@@ -31,7 +20,11 @@ export default function Header() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mx-auto">
-                    { items }
+                    {list.map((value, index) => (
+                        <Nav.Link style={styles.link} href={'#' + value.path} key={index}>
+                            { value.title }
+                        </Nav.Link>
+                    ))}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

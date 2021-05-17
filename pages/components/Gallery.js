@@ -17,7 +17,7 @@ export default function Gallery() {
 
     return (
       <Carousel fade style={{ marginTop: '5.5rem' }}>
-        {items.map((value) => (
+        {items.map((value, index) => (
           <Carousel.Item style={{ width: '100%', height: '75vh', zIndex: 0 }} key={index}>
             <Image
               src={value.url}

@@ -10,17 +10,13 @@ function Cards() {
     useEffect(async () => {
         const response = await axios.get('api/properties')
         setProperties(response.data)
-    })
-
-    // {propiertie.images.map((image) => (
-    //     <Image src={propiertie.url} width={100} height={300} />
-    // ))}
+    }, [])
     
     return (
         <Row md={4} style={styles.container}>
             {propierties.map((propiertie, i) => (
-            <Col>
-                <Card style={{ width: '350px', margin: '0 auto', marginBottom: '1rem' }}>
+            <Col key={i}>
+                <Card style={styles.card}>
                     <Card.Body>
                         <Card.Title>
                             {propiertie.title}
@@ -50,6 +46,11 @@ const styles = {
         fontSize: '1rem',
         marginLeft: '0.2rem',
         color: 'rgba(0, 0, 0, 0.70)'
+    },
+    card: {
+        width: '350px',
+        margin: '0 auto',
+        marginBottom: '1rem'
     }
 }
 
