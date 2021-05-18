@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react'
 
 export const StoreContext = createContext({})
 
-export function StoreProvider({ children }) {
+export default function StoreProvider({ children }) {
     const [tab, setTab] = useState(1)
 
     // Form Context
