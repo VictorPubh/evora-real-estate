@@ -10,19 +10,22 @@ module.exports = withImages({
                         loader: 'file-loader'
                     },
                 ],
-            },
-            {
-                test: /\.svg$/,
-                use: {
-                    loader: 'svg-url-loader',
-                    options: {
-                        encoding: 'base64'
-                    }
-                }
             }
         ],
     },
 })
+
+module.exports = {
+    module: {
+        test: /\.svg$/i,
+        use: {
+            loader: 'svg-url-loader',
+            options: {
+                encoding: 'base64'
+            }
+        }
+    }
+}
 
 module.exports = {
     images: {
