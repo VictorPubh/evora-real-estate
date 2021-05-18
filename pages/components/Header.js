@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Image from 'next/image'
-import Logotipo from '../../public/images/logo-text.svg'
+import Logotipo from '../../public/images/logo-text.png'
 import { Nav, Navbar } from 'react-bootstrap'
 
 export default function Header() {

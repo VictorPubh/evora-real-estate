@@ -8,7 +8,7 @@ import { isMobile } from 'react-device-detect'
 import Header from './components/Header'
 import Cards from './components/Cards'
 import Gallery from './components/Gallery'
-import Logotipo from '../public/images/logo-black.svg'
+import Logotipo from '../public/images/logo-black.png'
 import Faq from '../pages/components/Faq'
 
 // Bootstrap
