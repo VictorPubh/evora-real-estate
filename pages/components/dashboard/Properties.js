@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus, faSave } from '@fortawesome/free-solid-svg-icons'
 import 'basscss'
 
-function insertProperties() {
+function Properties() {
     const [formTitle, setFormTitle] = useState()
     const [formDetails, setFormDetails] = useState()
     const [formSale, setFormSale] = useState(false)
@@ -91,4 +91,4 @@ const styles = {
     }
 }
 
-export default insertProperties
+export default Properties
