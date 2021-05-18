@@ -11,8 +11,9 @@ function Listing() {
     let Results
 
     useEffect(async () => {
-        const response = await axios.get('api/properties')
-        setPropierties(response.data)
+        const { data } = await axios.get('/api/properties')
+        setPropierties(data)
+        setLoading(false)
     }, [])
 
     if(loading) {
