@@ -1,14 +1,14 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { Table } from 'react-bootstrap'
+import { useRouter } from 'next/router'
 
 function Listing() {
+    const router = useRouter()
     const [propierties, setPropierties] = useState([])
     const [loading, setLoading] = useState(true)
-
-    let Results
 
     useEffect(async () => {
         const { data } = await axios.get('/api/properties')
@@ -38,7 +38,9 @@ function Listing() {
                         <td> { propiertie.title } </td>
                         <td> { propiertie.details } </td>
                         <td> { propiertie.sale ? "Sim" : "Não" }</td>
-                        <td>@mdo</td>
+                        <td className="center pointer text-info" onClick={() => router.push(`/dashboard/${propiertie._id}`)}>
+                            <FontAwesomeIcon icon={faEdit} />
+                        </td>
                     </tr>
                 ))}
                 </tbody>

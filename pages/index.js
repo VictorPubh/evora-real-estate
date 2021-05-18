@@ -9,6 +9,7 @@ import Header from './components/Header'
 import Cards from './components/Cards'
 import Gallery from './components/Gallery'
 import Logotipo from '../public/images/logo-black.svg'
+import Faq from '../pages/components/Faq'
 
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -29,6 +30,7 @@ export default function Home() {
       </main>
 
       <footer style={styles.footer}>
+        <Faq />
         <Row>
           <Col sm={8}>
             <div style={styles.topbar}>

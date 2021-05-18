@@ -6,7 +6,9 @@ import Dashboard from '../dashboard'
 
 function Propertie(){
     const router = useRouter()
-    const { ID } = router.query
+    const { id } = router.query
+    console.log(id)
+
     const {
         setTab,
         setFormID,
