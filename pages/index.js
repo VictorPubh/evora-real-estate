@@ -13,10 +13,11 @@ import Faq from '../pages/components/Faq'
 
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
+import GlobalProvider from './context/global'
 
 export default function Home() {
   return (
-    <div>
+    <GlobalProvider>
       <main>
         <Header />
         <Gallery />
@@ -96,12 +97,17 @@ export default function Home() {
           <Image src={Logotipo} width={200} height={200}/>
         </div>
       </footer>
-    </div>
+    </GlobalProvider>
   )
 }
 
 const styles = {
-  inputGroupForm: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '0.5rem' },
+  inputGroupForm: {
+    display: 'flex',
+    justifyContent:'center',
+    alignItems: 'center',
+    marginBottom: '0.5rem'
+  },
   details: {
     fontSize: '14px'
   },
