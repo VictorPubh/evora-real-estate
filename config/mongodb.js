@@ -19,21 +19,21 @@ if (!dbName) {
     )
 }
 
+export const client = new MongoClient(URI, {
+    poolSize: 15,
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+})
+
 async function connectToDatabase() {
     if (cachedDb) {
         return cachedDb
     }
-    const client = new MongoClient(URI, {
-        poolSize: 15,
-        useUnifiedTopology: true,
-        useNewUrlParser: true
-    })
 
     try {
         await client.connect()
         const db = client.db(dbName)
 
-        // Collections
         const properties = db.collection('properties')
         const carousel = db.collection('carousel')
 
@@ -46,8 +46,8 @@ async function connectToDatabase() {
             properties,
             carousel
         }
-    } finally {
-        console.log('A conexão com o MongoDB foi finalizada.')
+    } catch(err) {
+        console.log(err)
     }
 }
 

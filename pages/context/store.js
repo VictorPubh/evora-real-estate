@@ -12,6 +12,9 @@ export default function StoreProvider({ children }) {
     const [formSale, setFormSale] = useState(false)
     const [listImages, setListImages] = useState([])
 
+    const [propierties, setPropierties] = useState([])
+    const [loading, setLoading] = useState(true)
+
     const cleanForm = () => {
         setFormID('')
         setFormTitle('')
@@ -34,6 +37,10 @@ export default function StoreProvider({ children }) {
             setFormSale,
             listImages,
             setListImages,
+            propierties,
+            loading,
+            setLoading,
+            setPropierties,
             cleanForm
         }}>{children}</StoreContext.Provider>
 }
@@ -55,6 +62,10 @@ export function useStore() {
         setFormSale,
         listImages,
         setListImages,
+        propierties,
+        setPropierties,
+        loading,
+        setLoading,
         cleanForm
     } = context
 
@@ -71,6 +82,10 @@ export function useStore() {
         setFormSale,
         listImages,
         setListImages,
+        propierties,
+        setPropierties,
+        loading,
+        setLoading,
         cleanForm
     }
 }

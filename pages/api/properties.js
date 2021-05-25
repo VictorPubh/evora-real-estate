@@ -3,20 +3,28 @@ import connectToDatabase from '../../config/mongodb'
 export default async (req, res) => {
     const sale = req.body.sale || undefined
     const query = (sale != undefined) ? { sale } : {}
+    const { client, properties } = await connectToDatabase()
 
     try {
-        const { client, properties } = await connectToDatabase()
+        if (properties) {
+            const resQuery = await properties
+                .find(query)
+                .toArray()
+        
+            res.status(200).json(resQuery)
+        }
 
-        const resQuery = await properties
-            .find(query)
-            .toArray()
+        return false
 
-        client.close()
-        res.status(200).json(resQuery)
     } catch(err) {
         res.status(400).json({
             err
         })
+
         console.log(err)
+    }
+
+    finally {
+        client.close()
     }
 }

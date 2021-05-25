@@ -2,8 +2,9 @@ import connectToDatabase from '../../config/mongodb'
 
 export default async (req, res) => {
     const mobile = req.body.isMobile || false
+    const { carousel, client } = await connectToDatabase()
+    
     try {
-        const { carousel } = await connectToDatabase()
         const query = await carousel.find({ mobile }).toArray()
         res.status(200).json(query)
     } catch(err) {
@@ -11,5 +12,9 @@ export default async (req, res) => {
             err
         })
         console.log(err)
+    }
+
+    finally {
+        client.close()
     }
 }

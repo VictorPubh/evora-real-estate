@@ -1,7 +1,7 @@
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 
-function Header() {
+function Header() {  
     return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="mb1">
     <Navbar.Brand>Dashboard</Navbar.Brand>

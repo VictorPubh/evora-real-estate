@@ -8,11 +8,8 @@ export default (req, res) => {
             title: 'Imóveis',
             path: 'properties'
         }, {
-            title: 'Avaliação',
-            path: 'rate'
-        }, {
-            title: 'Clientes',
-            path: 'customers'
+            title: 'Metodologia',
+            path: 'metodology'
         }, {
             title: 'Contato',
             path: 'contact'
