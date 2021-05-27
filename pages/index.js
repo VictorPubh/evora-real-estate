@@ -47,7 +47,6 @@ export default function Home() {
     try {
         const { data } = await axios.post('api/carousel', { isMobile })
         setCarousel(data)
-        setLoading(false)
     } 
 
     finally {
@@ -61,7 +60,7 @@ export default function Home() {
 
   return (
     <Container>
-      { loading ? <Loading /> :
+      { !loading ?
       <GlobalProvider>
         <ButtonWhatsApp />
         <main>
@@ -93,8 +92,7 @@ export default function Home() {
             </FooterText>
           </Center>
         </Footer>
-      </GlobalProvider>
-      }
+      </GlobalProvider> : <Loading /> }
     </Container>
   )
 }
