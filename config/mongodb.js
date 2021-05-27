@@ -51,6 +51,8 @@ async function connectToDatabase() {
   try {
     cached.conn = await cached.promise
     return cached.conn
+  } catch(err) {
+      console.log(err)
   }
 }
 
