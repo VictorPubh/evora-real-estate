@@ -32,11 +32,13 @@ async function connectToDatabase() {
 
   if (!cached.promise) {
     const opts = {
+      poolSize: 15,
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }
 
-    cached.promise = MongoClient.connect(MONGODB_URI, opts).then((client) => {
+    cached.promise = MongoClient.connect(MONGODB_URI, opts)
+    .then((client) => {
       const db = client.db(MONGODB_DB)
       return {
         client,
@@ -46,8 +48,10 @@ async function connectToDatabase() {
       }
     })
   }
-  cached.conn = await cached.promise
-  return cached.conn
+  try {
+    cached.conn = await cached.promise
+    return cached.conn
+  }
 }
 
 export default connectToDatabase
