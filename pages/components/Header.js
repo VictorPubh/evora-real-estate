@@ -44,8 +44,10 @@ export default function Header() {
                                 { value.title }
                             </Nav.Link>
                         ))}
-                        <Nav.Link onClick={openWhatsApp}>
-                            Contato <FontAwesomeIcon icon={faWhatsapp} />
+                        <Nav.Link 
+                            style={styles.link}
+                            onClick={openWhatsApp}>
+                                Contato <FontAwesomeIcon icon={faWhatsapp} />
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
