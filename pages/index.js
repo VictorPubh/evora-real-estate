@@ -60,7 +60,7 @@ export default function Home() {
   }, [loading])
 
   return (
-    <>
+    <Container>
       { loading ? <Load /> :
       <GlobalProvider>
         <ButtonWhatsApp />
@@ -95,9 +95,17 @@ export default function Home() {
         </Footer>
       </GlobalProvider>
       }
-    </>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+`;
 
 const Anchor = styled.span``;
 const Footer = styled.div`
