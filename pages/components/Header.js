@@ -4,6 +4,9 @@ import axios from 'axios'
 import Image from 'next/image'
 import Logotipo from '../../public/images/logo-text.svg'
 import { Nav, Navbar } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { openWhatsApp } from './WhatsApp'
 
 export default function Header() {
   const [expanded, setExpanded] = useState(false);
@@ -41,6 +44,9 @@ export default function Header() {
                                 { value.title }
                             </Nav.Link>
                         ))}
+                        <Nav.Link onClick={openWhatsApp}>
+                            Contato <FontAwesomeIcon icon={faWhatsapp} />
+                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

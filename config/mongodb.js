@@ -1,54 +1,53 @@
-const { MongoClient } = require('mongodb')
+import { MongoClient } from 'mongodb'
 
-let db
-let URI = process.env.MONGODB_URI
-let dbName = process.env.MONGODB_DB
+const { MONGODB_URI, MONGODB_DB } = process.env
 
-let chachedClient = null
-let cachedDb = null
-
-if (!URI) {
-    throw new Error(
-        'O URI da conexão não está definido.'
-    )
+if (!MONGODB_URI) {
+  throw new Error(
+    'Please define the MONGODB_URI environment variable inside .env.local'
+  )
 }
 
-if (!dbName) {
-    throw new Error(
-        'O DB (name) da conexão não está definido.'
-    )
+if (!MONGODB_DB) {
+  throw new Error(
+    'Please define the MONGODB_DB environment variable inside .env.local'
+  )
 }
 
-export const client = new MongoClient(URI, {
-    poolSize: 15,
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-})
+/**
+ * Global is used here to maintain a cached connection across hot reloads
+ * in development. This prevents connections growing exponentially
+ * during API Route usage.
+ */
+let cached = global.mongo
+
+if (!cached) {
+  cached = global.mongo = { conn: null, promise: null }
+}
 
 async function connectToDatabase() {
-    if (cachedDb) {
-        return cachedDb
+  if (cached.conn) {
+    return cached.conn
+  }
+
+  if (!cached.promise) {
+    const opts = {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     }
 
-    try {
-        await client.connect()
-        const db = client.db(dbName)
-
-        const properties = db.collection('properties')
-        const carousel = db.collection('carousel')
-
-        cachedDb = db
-        chachedClient = client
-
-        return {
-            db,
-            client,
-            properties,
-            carousel
-        }
-    } catch(err) {
-        console.log(err)
-    }
+    cached.promise = MongoClient.connect(MONGODB_URI, opts).then((client) => {
+      const db = client.db(MONGODB_DB)
+      return {
+        client,
+        db,
+        properties: db.collection('properties'),
+        carousel: db.collection('carousel')
+      }
+    })
+  }
+  cached.conn = await cached.promise
+  return cached.conn
 }
 
 export default connectToDatabase

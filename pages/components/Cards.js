@@ -7,7 +7,7 @@ import Gallery from '../components/GalleryCard'
 function Cards({ propierties }) {
     return (
         <Container>
-            <h3 className="center m3"> Imóveis Disponíveis </h3>
+            <Title> Imóveis Disponíveis </Title>
             <Properties>
                 {propierties?.map((propiertie, i) => (
                     <StyledCard>
@@ -53,6 +53,11 @@ const TextSale = styled.span`
     margin-left: .2rem;
     float: right;
     color: rgba(0, 0, 0, .7);
+`;
+
+const Title = styled.h4`
+    text-align: center;
+    margin: 2rem auto;
 `;
 
 const styles = {

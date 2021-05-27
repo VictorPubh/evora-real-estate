@@ -1,24 +1,26 @@
 import { faSpinner } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import styled from "styled-components"
 
 function Load() {
     return (
-        <>
-            <main style={styles.container} className="flex flex-wrap justify-center content-center">
-                <FontAwesomeIcon icon={faSpinner} style={styles.spinner} spin size="2x" />
-            </main>
-        </>
+        <Container>
+            <Spinner icon={faSpinner} spin size="2x" />
+        </Container>
     )
 }
 
-const styles = {
-    container: {
-        height: '100vh'
-    },
-    spinner: {
-        color: 'brown',
-        opacity: '0.65'
-    }
-}
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+`;
+
+const Spinner = styled(FontAwesomeIcon)`
+    color: brown;
+    opacity: 0.65;
+`;
 
 export default Load

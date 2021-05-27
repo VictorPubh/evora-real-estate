@@ -19,8 +19,6 @@ export default function Gallery({ items }) {
             </Carousel.Item>
           ))}  
         </Carousel>
-
-        <span id="properties"/>
       </Container>
     )
 }
