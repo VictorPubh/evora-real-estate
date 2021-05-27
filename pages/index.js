@@ -21,6 +21,44 @@ import axios from 'axios'
 import styled from 'styled-components'
 import ButtonWhatsApp, { openWhatsApp } from './components/WhatsApp'
 
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+`;
+
+const Loading = styled(Load)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+`;
+
+const Anchor = styled.span``;
+const Footer = styled.div`
+  width: 100%;
+  justify-content: center;
+`;
+
+const Services = styled.div`
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1.25rem auto;
+`;
+
+const Center = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 3.5rem;
+`;
+
+const FooterText = styled.div`
+  margin-top: 1.5rem;
+`;
+
 export default function Home() {
   const [carousel, setCarousel] = useState([])
 
@@ -96,41 +134,3 @@ export default function Home() {
     </Container>
   )
 }
-
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-`;
-
-const Loading = styled(Load)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-`;
-
-const Anchor = styled.span``;
-const Footer = styled.div`
-  width: 100%;
-  justify-content: center;
-`;
-
-const Services = styled.div`
-  font-size: 1.5rem;
-  text-align: center;
-  margin: 1.25rem auto;
-`;
-
-const Center = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  text-align: center;
-  font-size: 12px;
-  margin-top: 3.5rem;
-`;
-
-const FooterText = styled.div`
-  margin-top: 1.5rem;
-`;
