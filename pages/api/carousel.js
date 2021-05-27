@@ -13,8 +13,4 @@ export default async (req, res) => {
         })
         console.log(err)
     }
-
-    finally {
-        client.close()
-    }
 }
