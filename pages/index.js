@@ -61,7 +61,7 @@ export default function Home() {
 
   return (
     <Container>
-      { loading ? <Load /> :
+      { loading ? <Loading /> :
       <GlobalProvider>
         <ButtonWhatsApp />
         <main>
@@ -100,6 +100,14 @@ export default function Home() {
 }
 
 const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+`;
+
+const Loading = styled(Load)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100vh;
 `;
