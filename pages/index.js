@@ -54,17 +54,24 @@ const Services = styled.div`
   margin: 1.25rem auto;
 `;
 
-const Center = styled.div`
+const Flex = styled.div`
+  background-color: rgb(245, 245, 242);
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  font-size: 12px;
-  margin-top: 3.5rem;
+  font-size: 1rem;
+  margin-top: 2.2rem;
+`;
+
+const FText400 = styled.p``;
+const FText500 = styled.p`
+  font-weight: 500;
 `;
 
 const FooterText = styled.div`
-  margin-top: 1.5rem;
+  margin: 0 2rem;
 `;
 
 export default function Home() {
@@ -108,31 +115,32 @@ export default function Home() {
         <main>
           <Header />
           <Gallery items={carousel} />
-            <Anchor id="history" />
-          <History />
-            <Anchor id="properties" />
+          <Cards propierties={propierties} />
           <Services>
             <li>Assessoria</li>
             <li>Compra/Venda</li>
             <li>Avaliação</li>
             <li>Locação</li>
-            <li>Reformas Arquitetura</li>
+            <li>Reformas</li>
+            <li>Arquitetura</li>
             <li>Engenharia</li>
             <li>Construção</li>
             <li>Documentação</li>
           </Services>
-          <Cards propierties={propierties} />
         </main>
 
         <Footer>
+          <Anchor id="history" />
+          <History />
+            <Anchor id="properties" />
           <Metodology />
-          <Center>
-            <Image src={Logotipo} width={100} height={100}/>
+          <Flex>
+            <Image src={Logotipo} width={200} height={200}/>
             <FooterText>
-              <p>Rua Eng. Rebouças Número: 968 Centro / Cep: 85851190</p>
-              <p>Foz do Iguaçu, Paraná/PR | CNPJ: 41.886.696/0001-82</p>
+              <FText500>Rua Eng. Rebouças Número: 968 Centro / CEP: 85851190</FText500>
+              <FText400>Foz do Iguaçu, Paraná/PR | CNPJ: 41.886.696/0001-82</FText400>
             </FooterText>
-          </Center>
+          </Flex>
         </Footer>
       </GlobalProvider> : <Loading /> }
     </Container>

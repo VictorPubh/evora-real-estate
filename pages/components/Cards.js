@@ -4,13 +4,39 @@ import ButtonWhatsApp, { openWhatsApp } from '../components/WhatsApp'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import styled from 'styled-components'
 import Gallery from '../components/GalleryCard'
+import { useEffect, useState } from 'react'
 
 function Cards({ propierties }) {
+    const [filter, setFilter] = useState([])
+    const [sale, defineSale] = useState(null)
+
+    const setSale = (param) => {
+        if(sale == param) {
+            defineSale(null)
+        } else {
+            defineSale(param)
+        }
+    }
+
+    useEffect(() => {
+        let temp = propierties
+        if(sale != null) {
+            temp = temp?.filter((element) => {
+                if (element.sale == sale) return element
+            })
+        }
+        setFilter(temp)
+    }, [sale, setFilter])
     return (
         <Container>
-            <Title> Imóveis Disponíveis </Title>
+            <Title> Imóveis Disponíveis 
+                <WrapperButton>
+                    <BrownButton variant="secondary" onClick={() => setSale(false)}>Alugar</BrownButton>
+                    <BrownButton variant="secondary" onClick={() => setSale(true)}>Comprar</BrownButton>
+                </WrapperButton>
+            </Title>
             <Properties>
-                {propierties?.map((propiertie, i) => (
+                {filter?.map((propiertie, i) => (
                     <StyledCard key={i}>
                         <Gallery items={propiertie.images} />
                         <Card.Body>
@@ -33,6 +59,17 @@ function Cards({ propierties }) {
         </Container>
     )
 }
+
+const WrapperButton = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+`;
+
+const BrownButton = styled(Button)`
+    background-color: rgb(168, 156, 132);
+    border: 0;
+`;
 
 const Container = styled.div`
     padding: 0 2rem;
@@ -57,6 +94,9 @@ const TextSale = styled.span`
 `;
 
 const Title = styled.h4`
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
     text-align: center;
     margin: 2rem auto;
 `;

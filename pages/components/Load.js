@@ -5,7 +5,7 @@ import styled from "styled-components"
 function Load() {
     return (
         <Container>
-            <Spinner icon={faSpinner} spin size="2x" />
+            {/* <Spinner icon={faSpinner} spin size="2x" /> */}
         </Container>
     )
 }
