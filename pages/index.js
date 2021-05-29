@@ -115,6 +115,7 @@ export default function Home() {
         <main>
           <Header />
           <Gallery items={carousel} />
+          <Anchor id="properties" />
           <Cards propierties={propierties} />
           <Services>
             <li>Assessoria</li>
@@ -132,7 +133,6 @@ export default function Home() {
         <Footer>
           <Anchor id="history" />
           <History />
-            <Anchor id="properties" />
           <Metodology />
           <Flex>
             <Image src={Logotipo} width={200} height={200}/>
