@@ -66,7 +66,8 @@ const styles = {
         zIndex: '24',
     },
     link: {
-        textAlign: 'center'
+        textAlign: 'center',
+        padding: '1rem 2rem'
     },
     brand: {
         margin: '0 0 0 0.7rem'

@@ -1,5 +1,6 @@
 import { Card, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ButtonWhatsApp, { openWhatsApp } from '../components/WhatsApp'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import styled from 'styled-components'
 import Gallery from '../components/GalleryCard'
@@ -10,7 +11,7 @@ function Cards({ propierties }) {
             <Title> Imóveis Disponíveis </Title>
             <Properties>
                 {propierties?.map((propiertie, i) => (
-                    <StyledCard>
+                    <StyledCard key={i}>
                         <Gallery items={propiertie.images} />
                         <Card.Body>
                             <Card.Title>
@@ -22,7 +23,7 @@ function Cards({ propierties }) {
                             <Card.Text> {propiertie.details} </Card.Text>
                         </Card.Body>
                         <Card.Footer>
-                            <Button variant="outline-secondary" block>
+                            <Button variant="outline-secondary" onClick={openWhatsApp} block>
                                 <FontAwesomeIcon icon={faWhatsapp} /> Entre em Contato
                             </Button >
                         </Card.Footer>

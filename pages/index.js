@@ -41,8 +41,16 @@ const Footer = styled.div`
 `;
 
 const Services = styled.div`
-  font-size: 1.5rem;
+  background-color: rgb(168, 156, 132);
+  font-size: 1.2rem;
+  font-weight: 500;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  color: white;
+  padding: 1.2rem;
   margin: 1.25rem auto;
 `;
 
@@ -92,10 +100,6 @@ export default function Home() {
     }
   }, [])
 
-  useEffect(() => {
-    setLoading(loading)
-  }, [loading])
-
   return (
     <Container>
       { !loading ?
@@ -108,14 +112,14 @@ export default function Home() {
           <History />
             <Anchor id="properties" />
           <Services>
-            <Badge variant="dark">Assessoria </Badge>
-            <Badge>Compra/Venda </Badge>
-            <Badge variant="dark">Avaliação</Badge>
-            <Badge>Locação</Badge>
-            <Badge variant="dark">Reformas Arquitetura</Badge>
-            <Badge>Engenharia</Badge>
-            <Badge variant="dark">Construção</Badge>
-            <Badge>Documentação</Badge>
+            <li>Assessoria</li>
+            <li>Compra/Venda</li>
+            <li>Avaliação</li>
+            <li>Locação</li>
+            <li>Reformas Arquitetura</li>
+            <li>Engenharia</li>
+            <li>Construção</li>
+            <li>Documentação</li>
           </Services>
           <Cards propierties={propierties} />
         </main>
