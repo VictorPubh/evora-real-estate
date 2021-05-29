@@ -128,9 +128,6 @@ export default function Home() {
             <li>Construção</li>
             <li>Documentação</li>
           </Services>
-        </main>
-
-        <Footer>
           <Anchor id="history" />
           <History />
           <Metodology />
@@ -141,7 +138,7 @@ export default function Home() {
               <FText400>Foz do Iguaçu, Paraná/PR | CNPJ: 41.886.696/0001-82</FText400>
             </FooterText>
           </Flex>
-        </Footer>
+        </main>
       </GlobalProvider> : <Loading /> }
     </Container>
   )
