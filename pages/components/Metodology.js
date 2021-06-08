@@ -9,7 +9,7 @@ export default function Metodology() {
         <Container>
         <Anchor id="metodology" />
         <Board>
-          Metodologia da Assesoria Imobiliária Évora
+          Metodologia da Assessoria Imobiliária Évora
         </Board>
         <Row>
           <Col>
@@ -17,7 +17,7 @@ export default function Metodology() {
               <Title>1. Compra e Venda!</Title>
               <Text>
                 Idealize e nós buscamos o imóvel ideal pra você. <br />
-                Conte com a nossa assessoria e garantia, o melhor negócio na venda do seu imóvel! </Text>
+                Conte com a nossa Assessoria e garantia, o melhor negócio na venda do seu imóvel! </Text>
             </div>
           </Col>
             {(!isMobile) ? <FontAwesomeIcon icon={faAngleDoubleRight} color="rgb(168, 156, 132)" size="2x" /> : null}
