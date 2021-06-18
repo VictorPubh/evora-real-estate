@@ -4,9 +4,13 @@ import ButtonWhatsApp, { openWhatsApp } from '../components/WhatsApp'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import styled from 'styled-components'
 import Gallery from '../components/GalleryCard'
+import FullGalery from '../components/FullGallery'
 import { useEffect, useState } from 'react'
+import { faMap, faMapPin } from '@fortawesome/free-solid-svg-icons'
+import { useGlobal } from '../context/global'
 
 function Cards({ propierties }) {
+    const { currentSlider, setCurrentSlider } = useGlobal()
     const [filter, setFilter] = useState([])
     const [sale, defineSale] = useState(null)
 
@@ -35,26 +39,36 @@ function Cards({ propierties }) {
                     <BrownButton variant="secondary" onClick={() => setSale(true)}>Comprar</BrownButton>
                 </WrapperButton>
             </Title>
+            { (currentSlider != null) ? (
+                <FullGalery />
+            ) : null }
             <Properties>
-                {filter?.map((propiertie, i) => (
-                    <StyledCard key={i}>
-                        <Gallery items={propiertie.images} />
-                        <Card.Body>
-                            <Card.Title>
-                                {propiertie.title}
-                                <TextSale>
-                                    { propiertie.sale ? '(A venda)' : '(Alugar)'}
-                                </TextSale>
-                            </Card.Title>
-                            <Card.Text> {propiertie.details} </Card.Text>
-                        </Card.Body>
-                        <Card.Footer>
-                            <Button variant="outline-secondary" onClick={openWhatsApp} block>
-                                <FontAwesomeIcon icon={faWhatsapp} /> Entre em Contato
-                            </Button >
-                        </Card.Footer>
-                    </StyledCard>
-                ))}
+                { (filter.length > 0) ? (
+                    filter?.map((propiertie, i) => (
+                        <StyledCard key={i} onClick={() => setCurrentSlider(propiertie._id)}>
+                            <Gallery items={propiertie.images} />
+                            <Card.Body>
+                                <Card.Title>
+                                    <PropiertieTitle>{propiertie.title}</PropiertieTitle>
+                                    <TextSale>
+                                        { propiertie.sale ? '(A venda)' : '(Alugar)'}
+                                    </TextSale>
+                                </Card.Title>
+                                <Amount> R$ {propiertie.amount}</Amount>
+                                <Card.Text> {propiertie.details} </Card.Text>
+                                <Address>
+                                    <AddressIcon icon={faMapPin} />
+                                    <AdressText>{ propiertie.address }</AdressText>
+                                </Address>
+                            </Card.Body>
+                            <Card.Footer>
+                                <Button variant="outline-secondary" onClick={openWhatsApp} block>
+                                    <FontAwesomeIcon icon={faWhatsapp} /> Entre em Contato
+                                </Button >
+                            </Card.Footer>
+                        </StyledCard>
+                    ))
+                ) : <Nothing>Nenhum disponível</Nothing> }
                 <span id="services" />
             </Properties>
         </Container>
@@ -65,6 +79,38 @@ const WrapperButton = styled.div`
     display: flex;
     justify-content: center;
     gap: .5rem;
+`;
+
+const Amount = styled.h3`
+
+`;
+
+const Nothing = styled.div`
+    margin: 8rem;
+    font-weight: bold;
+    opacity: 0.5;
+    width: 100%;
+    text-align: center;
+`
+
+const PropiertieTitle = styled.span`
+`;
+
+const AddressIcon = styled(FontAwesomeIcon)`
+    font-size: 1.25rem;
+`;
+
+const AdressText = styled.span`
+    text-transform: capitalize;
+    display: inline-block;
+`;
+
+const Address = styled.span`
+    font-color: rgb(120, 120, 120);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .85rem;
 `;
 
 const BrownButton = styled(Button)`
