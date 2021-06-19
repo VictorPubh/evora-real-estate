@@ -2,7 +2,6 @@ import styled from "styled-components"
 import Carousel from 'react-bootstrap/Carousel'
 import Image from 'next/image'
 import { useStore } from '../context/store'
-import { useGlobal } from '../context/global'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimes } from "@fortawesome/free-solid-svg-icons"
@@ -20,7 +19,7 @@ const FullGalery = () => {
     
     const onClose = (e) => {
         e.stopPropagation()
-        setCurrentSlider(null)
+        // setCurrentSlider(null)
     }
 
     return (
