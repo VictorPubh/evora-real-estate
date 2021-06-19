@@ -7,10 +7,10 @@ import Gallery from '../components/GalleryCard'
 import FullGalery from '../components/FullGallery'
 import { useEffect, useState } from 'react'
 import { faMap, faMapPin } from '@fortawesome/free-solid-svg-icons'
-import { useGlobal } from '../context/global'
+import { useStore } from '../context/store'
 
 function Cards({ propierties }) {
-    const { currentSlider, setCurrentSlider } = useGlobal()
+    const { currentSlider, setCurrentSlider } = useStore()
     const [filter, setFilter] = useState([])
     const [sale, defineSale] = useState(null)
 
@@ -43,7 +43,7 @@ function Cards({ propierties }) {
                 <FullGalery />
             ) : null }
             <Properties>
-                { (filter.length > 0) ? (
+                { (filter?.length > 0) ? (
                     filter?.map((propiertie, i) => (
                         <StyledCard key={i} onClick={() => setCurrentSlider(propiertie._id)}>
                             <Gallery items={propiertie.images} />

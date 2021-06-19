@@ -10,10 +10,9 @@ import { useEffect, useState } from "react"
 
 
 
-const FullGalery = (props) => {
-    const { currentSlider, setCurrentSlider } = useGlobal();
+const FullGalery = () => {
     const [ current, setCurrent ] = useState()
-    const { propierties } = useStore()
+    const { propierties, currentSlider, setCurrentSlider } = useStore()
     useEffect(() => {
         const found = propierties.find(element => element._id === currentSlider)
         setCurrent(found)
@@ -21,7 +20,7 @@ const FullGalery = (props) => {
     
     const onClose = (e) => {
         e.stopPropagation()
-        // setCurrentSlider(null)
+        setCurrentSlider(null)
     }
 
     return (

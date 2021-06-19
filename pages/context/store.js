@@ -5,6 +5,8 @@ export const StoreContext = createContext({})
 export default function StoreProvider({ children }) {
     const [tab, setTab] = useState(1)
 
+    const [currentSlider, setCurrentSlider] = useState(null)
+
     // Form Context
     const [formID, setFormID] = useState()
     const [formTitle, setFormTitle] = useState()
@@ -41,7 +43,9 @@ export default function StoreProvider({ children }) {
             loading,
             setLoading,
             setPropierties,
-            cleanForm
+            cleanForm,
+            currentSlider,
+            setCurrentSlider
         }}>{children}</StoreContext.Provider>
 }
 
@@ -66,7 +70,9 @@ export function useStore() {
         setPropierties,
         loading,
         setLoading,
-        cleanForm
+        cleanForm,
+        currentSlider,
+        setCurrentSlider
     } = context
 
     return {
@@ -86,6 +92,8 @@ export function useStore() {
         setPropierties,
         loading,
         setLoading,
-        cleanForm
+        cleanForm,
+        currentSlider,
+        setCurrentSlider
     }
 }
