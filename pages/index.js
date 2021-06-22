@@ -20,6 +20,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import styled from 'styled-components'
 import ButtonWhatsApp, { openWhatsApp } from './components/WhatsApp'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 const Container = styled.div`
   width: 100%;
@@ -65,9 +67,12 @@ const Flex = styled.div`
   margin-top: 2.2rem;
 `;
 
-const FText400 = styled.p``;
+const FText400 = styled.p`
+font-weight: 600;
+margin: .2rem 0;`;
 const FText500 = styled.p`
-  font-weight: 500;
+  font-weight: 600;
+  margin: .2rem 0;
 `;
 
 const FooterText = styled.div`
@@ -134,8 +139,16 @@ export default function Home() {
           <Flex>
             <Image src={Logotipo} width={200} height={200}/>
             <FooterText>
+            <FacebookButton href="https://www.facebook.com/%C3%89vora-Assessoria-Imobili%C3%A1ria-102025335413019">
+              <FontAwesomeIcon icon={faFacebook} />
+            </FacebookButton>
+            <InstaButton href="http://instagram.com/evora.assessoria">
+              <FontAwesomeIcon icon={faInstagram} />
+            </InstaButton>
               <FText500>Rua Eng. Rebouças Número: 968 Centro / CEP: 85851190</FText500>
               <FText400>Foz do Iguaçu, Paraná/PR | CNPJ: 41.886.696/0001-82</FText400>
+              <FText400>CRECI: J07446 </FText400>
+              <FText400>Fixo: (45)3522-8154 / WhatsApp: (45)99941445</FText400>
             </FooterText>
           </Flex>
         </main>
@@ -143,3 +156,14 @@ export default function Home() {
     </Container>
   )
 }
+
+const IconButton = styled.a`
+  font-size: 1.5rem;
+  margin: .25rem;
+`;
+
+const FacebookButton = styled(IconButton)`
+`;
+
+const InstaButton = styled(IconButton)`
+`;

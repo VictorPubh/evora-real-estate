@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
 
 export const openWhatsApp = () => {
-    const URI = 'https://api.whatsapp.com/send/'
-    window.open(`${URI}?phone=554599941445`)
+    const URI = 'https://wa.me/message/NRPFLWHZI7BKN1'
+    window.open(URI)
 }
 
 export default function whatsAppButton() {

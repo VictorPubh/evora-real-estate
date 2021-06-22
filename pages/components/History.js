@@ -25,7 +25,7 @@ export default function History() {
                         <Image src={people} />
                         <h5>Vanderleia Neckel</h5>
                         <p>
-                            Paranaense, 32 anos, mãe de 3 filhos lindos, casada, corretora e empresária.<br />
+                            Paranaense, 34 anos, mãe de 3 filhos lindos, casada, corretora e empresária.<br />
                             Experiência em Setor Imobiliário e há anos como Correspondente Bancário em Financiamentos, incluindo Imobiliários. <br />
                             Cursou vários cursos para aprimoramento e melhor experiência do cliente Évora: <br />
                             - TTI – Técnico em Transações Imobiliárias <br />
