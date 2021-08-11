@@ -26,6 +26,8 @@ import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
 const Container = styled.div`
   width: 100%;
   height: 100vh;
+  
+  display: none;
 `;
 
 const Loading = styled(Load)`
