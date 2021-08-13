@@ -23,7 +23,7 @@ export default function Metodology() {
             {(!isMobile) ? <FontAwesomeIcon icon={faAngleDoubleRight} color="rgb(168, 156, 132)" size="2x" /> : null}
           <Col>
             <div>
-              <Title>2. Nossa assesoria é completa.</Title>
+              <Title>2. Nossa assessoria é completa.</Title>
               <Text>Locação residencial e comercial, reformas em geral e construção! <br />
               Junto com Você, nós idealizamos desde o projeto até a entrega das chaves.</Text>
             </div>
